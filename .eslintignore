@@ -2,7 +2,7 @@
 node_modules
 .env
 .env copy
-src/database/migrations
+src/database/migrations/*
 .eslintrc.json
 .lintstagedrc.json
 .huskyrc.json
