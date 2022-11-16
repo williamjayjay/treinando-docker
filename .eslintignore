@@ -1,0 +1,16 @@
+/*.js
+node_modules
+.env
+.env copy
+src/database/migrations
+.eslintrc.json
+.lintstagedrc.json
+.huskyrc.json
+docker-compose.yml
+Dockerfile
+ormconfig.ts
+package.json
+tsconfig.json
+yarn.lock
+.dockerignore
+.gitignore
