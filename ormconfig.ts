@@ -6,18 +6,19 @@ module.exports = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  // entities:
-  //   process.env.NODE_ENV === 'production'
-  //     ? ['./dist/modules/**/infra/typeorm/entities/*.js']
-  //     : ['./src/modules/**/infra/typeorm/entities/*.ts'],
+  entities:
+    process.env.NODE_ENV === 'production'
+    ? ['./dist/modules/**/infra/typeorm/entities/*.js']
+    : ['./src/modules/**/infra/typeorm/entities/*.ts'],
+      
   migrations:
     process.env.NODE_ENV === 'production'
-      ? ['./dist/database/migrations/*.ts']
-      : ['./src/database/migrations/*.ts'],
+    ? ['./dist/shared/infra/typeorm/migrations/*.js']
+    : ['./src/shared/infra/typeorm/migrations/*.ts'],
   cli: {
     migrationsDir:
       process.env.NODE_ENV === 'production'
-        ? 'dist/database/migrations'
-        : 'src/database/migrations'
+      ? './dist/shared/infra/typeorm/migrations/'
+      : './src/shared/infra/typeorm/migrations/'
   }
 }
