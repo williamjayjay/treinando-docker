@@ -9,7 +9,8 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "reset": "rm -rf node_modules yarn.lock .git && git init && yarn",
     "create-mig":"yarn typeorm migration:create -n",
-    "run-mig":"yarn typeorm migration:run"
+    "run-mig":"yarn typeorm migration:run",
+    "dok-db":"docker start database_postgress"
 
   },
   "dependencies": {

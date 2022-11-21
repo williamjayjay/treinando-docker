@@ -1,12 +1,12 @@
 
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
-import { query } from "express"
+const MAIN_TABLE = 'users'
 
 export class CreateUsers1668577316669 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "users",
+        name: MAIN_TABLE,
         columns: [
           {
             name: "id",
@@ -39,6 +39,6 @@ export class CreateUsers1668577316669 implements MigrationInterface {
   }
 
   public async down (queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("users")
+    await queryRunner.dropTable(MAIN_TABLE)
   }
 }

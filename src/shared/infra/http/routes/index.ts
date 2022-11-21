@@ -1,4 +1,6 @@
 import { Router } from "express"
+import { permissionRouter } from "../../../../modules/permission/infra/http/routes/permission.routes"
+import { roleRouter } from "../../../../modules/role/infra/http/routes/role.routes"
 import { sessionRouter } from "../../../../modules/session/infra/http/routes/session.routes"
 import { usersRouter } from "../../../../modules/users/infra/http/routes/user.routes"
 // import UserController from "./modules/user/infra/http/controllers/UserController"
@@ -13,6 +15,8 @@ const routes = Router()
 
 routes.use('/users', usersRouter)
 routes.use('/session', sessionRouter)
+routes.use('/permission', permissionRouter)
+routes.use('/role', roleRouter)
 // router.post("/sessions", SessionController.create)
 // router.post("/permissions", PermissionController.create)
 // router.post("/roles", RoleController.create)
