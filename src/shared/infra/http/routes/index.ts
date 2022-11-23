@@ -1,5 +1,8 @@
-import { Router } from "express"
+import { Router, Request, Response } from "express"
+import { ROLE_ADMIN, ROLE_USER } from "../../../../constants/permissions"
+import { is } from "../../../../middlewares/permission"
 import { permissionRouter } from "../../../../modules/permission/infra/http/routes/permission.routes"
+import { productsRouter } from "../../../../modules/products/infra/http/routes/products.routes"
 import { roleRouter } from "../../../../modules/role/infra/http/routes/role.routes"
 import { sessionRouter } from "../../../../modules/session/infra/http/routes/session.routes"
 import { usersRouter } from "../../../../modules/users/infra/http/routes/user.routes"
@@ -13,10 +16,23 @@ import { usersRouter } from "../../../../modules/users/infra/http/routes/user.ro
 
 const routes = Router()
 
+routes.get('/', (req: Request, res: Response) => {
+  return res.json({
+    data: {
+      code: 200,
+      status: 'OK',
+      Message:
+        'Ola você está tentando acessar uma api Privada, por favor realize o login para acessar as funcionalidades!',
+      url: 'https://api.treinando.docker.com.br/'
+    }
+  })
+})
+
 routes.use('/users', usersRouter)
 routes.use('/session', sessionRouter)
 routes.use('/permission', permissionRouter)
 routes.use('/role', roleRouter)
+routes.use('/products', productsRouter)
 // router.post("/sessions", SessionController.create)
 // router.post("/permissions", PermissionController.create)
 // router.post("/roles", RoleController.create)
